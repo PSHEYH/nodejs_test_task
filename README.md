@@ -12,3 +12,7 @@ Possible issues
 You may have problem when have already deplyoed something in port 5432
 
 1. If you already have deployed Postgres server or something in port 5432 you need to disable it.
+
+Hosting on
+
+185.247.117.116:3000
