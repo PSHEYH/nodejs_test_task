@@ -14,7 +14,7 @@ export class UserService {
 
   async create(dto: CreateUserDto) {
     const result = await this.userRepository.insert(dto);
-    return  result.generatedMaps[0];
+    return result.generatedMaps[0];
   }
 
   async update(id: string, dto: UpdateUserDto) {
@@ -23,7 +23,6 @@ export class UserService {
       dto.password = await hash(dto.password, salt);
       await this.userRepository.update({ id: id }, dto);
     } else {
-      console.log(dto);
       await this.userRepository.update({ id: id }, dto);
     }
   }
