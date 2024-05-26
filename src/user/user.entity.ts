@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { Post } from 'src/post/post.entity';
+import { Review } from 'src/review/review.entity';
 import { Column, Entity, OneToMany } from 'typeorm';
 import { PrimaryGeneratedColumn } from 'typeorm/decorator/columns/PrimaryGeneratedColumn';
 
@@ -51,4 +52,7 @@ export class User {
 
   @OneToMany(() => Post, (post) => post.user)
   posts: Post[];
+
+  @OneToMany(() => Review, (review) => review.user)
+  reviews: Review[];
 }

@@ -46,7 +46,10 @@ export class PostService {
       return await this.postRepository.find();
     } else {
       return (
-        await this.postRepository.find({ where: { userId: user.id } })
+        await this.postRepository.find({
+          where: { userId: user.id },
+          relations: { reviews: true },
+        })
       ).map((e) => {
         delete e.userId;
         return e;

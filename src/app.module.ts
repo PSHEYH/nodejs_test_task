@@ -6,6 +6,7 @@ import { PostModule } from './post/posts.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
+import { ReviewModule } from './review/review.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { AuthModule } from './auth/auth.module';
     UserModule,
     PostModule,
     AuthModule,
+    ReviewModule,
   ],
   controllers: [AppController],
   providers: [AppService],

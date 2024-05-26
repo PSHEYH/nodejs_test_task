@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Review } from 'src/review/review.entity';
 import { User } from 'src/user/user.entity';
-import { Column, Entity, ManyToOne } from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 import { PrimaryGeneratedColumn } from 'typeorm/decorator/columns/PrimaryGeneratedColumn';
 
 @Entity()
@@ -26,4 +27,7 @@ export class Post {
     onUpdate: 'CASCADE',
   })
   user: User;
+
+  @OneToMany(() => Review, (review) => review.post)
+  reviews: Review[];
 }
